@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Love Question</title>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #f8cce2;
+        font-family: Arial, sans-serif;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card {
+        background: white;
+        padding: 40px;
+        border-radius: 20px;
+        width: 550px;
+        height: 350px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        text-align: center;
+        position: relative;
+    }
+
+    h2 {
+        font-size: 26px;
+    }
+
+    /* YES button */
+    #yesBtn {
+        margin-top: 30px;
+        background-color: #ff2f92;
+        color: white;
+        padding: 14px 25px;
+        font-size: 20px;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+    }
+
+    /* NO button */
+    #noBtn {
+        background-color: #555;
+        color: white;
+        padding: 14px 25px;
+        font-size: 20px;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+
+        /* STARTING POSITION FIXED BELOW YES BUTTON */
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 230px;     /* PERFECT FIXED POSITION */
+    }
+
+    .message {
+        margin-top: 40px;
+        font-size: 30px;
+        font-weight: bold;
+        color: #ff0066;
+        display: none;
+    }
+</style>
+</head>
+<body>
+
+<div class="card" id="mainCard">
+
+    <h2>Kya tum mujhe pasand karte ho? ❤️</h2>
+
+    <button id="yesBtn">YES</button>
+    <button id="noBtn">NO</button>
+
+    <div class="message" id="msg">Yayyy! 😍💖</div>
+
+</div>
+
+<script>
+    const noBtn = document.getElementById("noBtn");
+    const yesBtn = document.getElementById("yesBtn");
+    const msg = document.getElementById("msg");
+    const card = document.getElementById("mainCard");
+
+    // NO button bhaagane ka code
+    noBtn.addEventListener("mouseover", () => {
+
+        const maxX = card.clientWidth - 120;
+        const maxY = card.clientHeight - 80;
+
+        const x = Math.random() * maxX;
+        const y = Math.random() * maxY;
+
+        noBtn.style.left = `${x}px`;
+        noBtn.style.top = `${y}px`;
+    });
+
+    // YES button click
+    yesBtn.addEventListener("click", () => {
+        msg.style.display = "block";
+        yesBtn.style.display = "none";
+        noBtn.style.display = "none";
+    });
+</script>
+
+</body>
+</html>
